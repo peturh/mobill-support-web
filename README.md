@@ -29,6 +29,6 @@ Then just go into http://localhost:9093
 
 ## Initate an admin
 
-Press the link down below, if {successfull: true} comes up you can log into this awesome homebuild CMS.
+Press the link down below, if {successfull: true} comes up you can log into this awesome homebuild CMS with the username: admin and the super secret password: password
 
 [Create an admin](http://localhost:9093/support/initiate/createAdmin)
