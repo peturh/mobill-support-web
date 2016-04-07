@@ -22,4 +22,4 @@
 
 Copy paste this into browser, if {successfull: true} comes up you can log into this awesome homebuild CMS.
 
-[create admin](localhost:9093/support/initiate/createAdmin)
+[create admin](http://localhost:9093/support/initiate/createAdmin)
