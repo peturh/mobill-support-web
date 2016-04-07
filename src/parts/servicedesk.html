@@ -1,0 +1,99 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // ==== custom trigger function ====
+        clickJira = function (showCollectorDialog) {
+            console.log("does this run yeah");
+
+            $('#myCustomTrigger').on('click', function (e) {
+                e.preventDefault();
+                showCollectorDialog();
+            });
+
+            // add any other custom triggers for the issue collector here
+        }
+
+    });
+</script>
+
+<script type="text/javascript"
+        src="https://tools.mobill.se/jira/s/en_USioaueo/786/3/1.1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=0a591419"></script>
+
+<section class="section servicedesk">
+    <div class="container">
+        <div class="col-sm-12 text-center white">
+            <h3 class="white"><i class="fa fa-envelope-o fa-4x wow slideInLeft"></i></h3>
+
+            <h3 class="white  wow slideInUp"> We always strive for the best service, please do contact us. You can send
+                an incident
+                report right here or send us an email. </h3>
+        </div>
+        <div class="col-sm-12 more-margin-top wow slideInUp" data-wow-duration="0.5s">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Contact <i class="fa fa-envelope-o pull-right"></i></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-6">
+
+                            <h5>HEAD OFFICE</h5>
+
+                            Mobill Scandinavia AB <br>
+                            Lilla Torg 1 <br>
+                            SE-211 34 Malmö <br>
+                            Sweden <br>
+
+                            +46 40 631 42 00 <br>
+                            <a href="mailto:info@mobill.se" type="mail">info@mobill.se</a>
+
+                            <h5>SALES</h5>
+
+                            +46 40 631 42 20<br>
+                            <a href="mailto:sales@mobill.se" type="mail">sales@mobill.se</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>CUSTOMER SUPPORT</h5>
+
+                            +46 40 631 42 10<br>
+                            <a href="mailto:support@mobill.se">support@mobill.se</a> <br>
+
+                            <a href="mailto:kund@mobill.se">kund@mobill.se</a>
+
+
+                            <h5>OFFICE HOURS</h5>
+
+                            Monday – Friday 9 AM – 5 PM CET
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Send us an incident report <i class="fa fa-bolt"></i></h3>
+                    </div>
+                    <div class="panel-body" ng-if="isUser()">
+                        <h5 class="no-bold">Are you having problems with any of our services? Please create an incident
+                            report
+                            and
+                            we'll
+                            contact you when it's solved.</h5>
+
+                        <button href="#" class="btn btn-primary btn-block" id="myCustomTrigger" onclick="clickJira">
+                            Send an incident report <i class="fa fa-plus"></i>
+                        </button>
+
+
+                    </div>
+
+                    <div class="panel-body" ng-if="!isUser()">
+                        <h5 class="no-bold">If you want to send us an incident report, you have to be logged in.</h5>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

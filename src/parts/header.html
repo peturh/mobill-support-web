@@ -1,0 +1,121 @@
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
+    <div class="container">
+
+        <div class="navbar-header">
+
+            <a class="navbar-brand" ng-click="goHome()">
+                <img class="logo img-responsive" style="width: 200px; margin-top: -16px;" src="img/mobill.png">
+            </a>
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#menu">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-2x"></i>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav navbar-right">
+
+                <!-- Mobile -->
+                <li class="navbar-li visible-xs" data-toggle="collapse"
+                    data-target="#menu">
+                    <a ng-class="{ active: isActive('/servicedesk')}" ng-click="goServiceDesk()">
+                        <i class="fa fa-envelope-o icon"></i> Service desk </a>
+                </li>
+                <li class="visible-xs" data-toggle="collapse"
+                    data-target="#menu">
+                    <a ng-class="{ active: isActive('/opensource')}" ng-click="goOpenSource()"><i
+                            class="fa fa-code icon "></i> Open source </a>
+                </li>
+                <li class="visible-xs" data-toggle="collapse"
+                    data-target="#menu">
+                    <a ng-class="{ active: isActive('/status')}" ng-click="goStatus()"><i
+                            class="fa fa-info icon"></i> Status </a>
+                </li>
+                <li ng-if="isUser()" class="visible-xs" data-toggle="collapse"
+                    data-target="#menu">
+                    <a ng-class="{ active: isActive('/downloads')}" ng-click="goDownloads()"><i
+                            class="fa fa-download icon"></i> Downloads </a>
+                </li>
+                <!-- Non mobile -->
+
+                <li class="navbar-li hidden-xs">
+                    <a ng-class="{ active: isActive('/servicedesk')}" ng-click="goServiceDesk()">
+                        <i class="fa fa-envelope-o icon"></i> Service desk </a>
+                </li>
+                <li class="hidden-xs">
+                    <a ng-class="{ active: isActive('/opensource')}" ng-click="goOpenSource()"><i
+                            class="fa fa-code icon "></i> Open source </a>
+                </li>
+                <li class="hidden-xs">
+                    <a ng-class="{ active: isActive('/status')}" ng-click="goStatus()"><i
+                            class="fa fa-info icon"></i> Status </a>
+                </li>
+                <li ng-if="isUser()" class="hidden-xs">
+                    <a ng-class="{ active: isActive('/downloads')}" ng-click="goDownloads()"><i
+                            class="fa fa-download icon"></i> Downloads </a>
+                </li>
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-chevron-down"></i> {{getUserName()}}
+                       </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- Mobile -->
+                        <li ng-if="isAdmin()" class="visible-xs" data-toggle="collapse"
+                            data-target="#menu">
+                            <a ng-class="{ active: isActive('/users')}" ng-click="goUsers()"><i class="fa fa-users"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li ng-if="isAdmin()" class="visible-xs" data-toggle="collapse"
+                            data-target="#menu">
+                            <a ng-class="{ active: isActive('/register')}" ng-click="goRegister()"><i
+                                    class="fa fa-pencil icon"></i> Register
+                            </a>
+                        </li>
+                        <li ng-if="!isLoggedIn()" class="visible-xs" data-toggle="collapse"
+                            data-target="#menu">
+                            <a ng-class="{ active: isActive('/login')}" ng-click="goLogin()"><i
+                                    class="fa fa-sign-in icon"></i> Login
+                            </a>
+                        </li>
+                        <li ng-if="isLoggedIn()" class="visible-xs" data-toggle="collapse"
+                            data-target="#menu">
+                            <a ng-click="goLogout()">
+                                <i class="fa fa-sign-out icon"></i> Logout
+                            </a>
+                        </li>
+
+                        <!-- Not Mobile -->
+
+                        <li ng-if="isAdmin()" class="hidden-xs">
+                            <a ng-class="{ active: isActive('/users')}" ng-click="goUsers()"><i class="fa fa-users"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li ng-if="isAdmin()" class="hidden-xs">
+                            <a ng-class="{ active: isActive('/register')}" ng-click="goRegister()"><i
+                                    class="fa fa-pencil icon"></i> Register
+                            </a>
+                        </li>
+                        <li ng-if="!isLoggedIn()" class="hidden-xs">
+                            <a ng-class="{ active: isActive('/login')}" ng-click="goLogin()"><i
+                                    class="fa fa-sign-in icon"></i> Login
+                            </a>
+                        </li>
+                        <li ng-if="isLoggedIn()" class="hidden-xs">
+                            <a ng-click="goLogout()">
+                                <i class="fa fa-sign-out icon"></i> Logout
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+</nav>

@@ -1,0 +1,46 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper" ng-controller="NavCtrl">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <img class="logo sidebar-logo" src="img/mobill.png">
+        </li>
+
+        <li>
+            <a ng-class="{ active: isActive('/servicedesk')}" ng-click="goServiceDesk()">
+                Service desk <i class="fa fa-envelope-o icon"></i></a>
+        </li>
+        <li>
+            <a ng-class="{ active: isActive('/opensource')}" ng-click="goOpenSource()">Open source <i
+                    class="fa fa-code icon "></i></a>
+        </li>
+        <li>
+            <a ng-class="{ active: isActive('/downloads')}" ng-click="goDownloads()">Downloads <i
+                    class="fa fa-download icon"></i></a>
+        </li>
+        <li>
+            <a ng-class="{ active: isActive('/login')}" ng-click="goLogin()">Login <i
+                    class="fa fa-sign-in icon"></i>
+           </a>
+        </li>
+        <li>
+            <a ng-class="{ active: isActive('/register')}" ng-click="goRegister()">Register <i
+                    class="fa fa-pencil icon"></i>
+           </a>
+        </li>
+        <li>
+            <a ng-click="goLogout()">Logout <i
+                    class="fa fa-sign-out icon"></i>
+            </a>
+        </li>
+
+        <li>
+            <a ng-class="{ active: isActive('/users')}" ng-click="goUsers()">Users <i class="fa fa-users icon"></i>
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+<!-- /#sidebar-wrapper -->
+
+

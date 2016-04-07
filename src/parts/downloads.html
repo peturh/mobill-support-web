@@ -1,0 +1,117 @@
+<div ng-if="!isUser()">
+    <div ng-include="'parts/401.html'"></div>
+</div>
+
+<div ng-if="isUser()">
+    <section class="section downloads" ng-init="init()">
+        <div class="container">
+            <div class="col-sm-12 text-center white">
+                <h3 class="white wow slideInLeft"><i class="fa fa-download fa-4x"></i></h3>
+
+                <h3 class="white wow slideInUp"> We want to be transparent with our customers, please have a look at our
+                    downloads, we
+                    got
+                    presentations, whitepapers, manuals etc.</h3>
+            </div>
+        </div>
+        <div class="container more-margin-top wow slideInUp" data-wow-duration="0.5s" ng-if="isUser()">
+            <div ng-class="adminColumnClass()">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Downloads <i class="fa fa-download pull-right"></i></h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <ul class="list-group">
+                            <li hide-show theId="{{download.id}}" class="list-group-item clickable hover"
+                                ng-repeat="download in downloads">
+
+                                <div id="{{download.id}}viewMode">
+                                    <span class="opensource-lib"><a target="_blank"
+                                                                    href="{{download.url}}">{{download.title}}</a></span>
+
+                                    <div>
+                                        <div id="{{download.id}}" class="truncate">
+                                            <div class="description">
+                                                {{download.type}}
+                                            </div>
+                                            <div class="licence-text">
+                                                {{download.description}}
+                                            </div>
+
+                                            <div class="hidden padding-bottom" id="{{download.id}}editAndRemove">
+                                        <span ng-if="isAdmin()" ng-click="removeDownload(download.id)"
+                                              class="pull-right"><i class="fa fa-times"></i></span>
+                                        <span ng-if="isAdmin()" edit-mode theId="{{download.id}}"
+                                              class="pull-right">
+                                                <i class="fa fa-pencil more-margin-right"></i>
+                                            </span>
+                                                <!--<span ng-if="isAdmin()" ng-click="editOpenSource()" class="pull-right">
+                                                    <i class="fa fa-pencil more-margin-right"></i>
+                                                </span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hidden" id="{{download.id}}editMode">
+                                    <label>Title: </label><input class="form-control" ng-model="download.title">
+                                    <label>URL: </label><input class="form-control" ng-model="download.url">
+
+
+                                    <label>Description:</label> <input class="form-control licence-text"
+                                                                       ng-model="download.type">
+
+                                    <label>Description:</label> <textarea class="form-control licence-text"
+                                                                          ng-model="download.description"></textarea>
+
+                                    <div class="padding-bottom" id="{{download.id}}save">
+                                            <span edit-mode ng-if="isAdmin()" theId="{{download.id}}"
+                                                  ng-click="saveDownload(download)"
+                                                  class="pull-right"><i class="fa fa-save fa-lg"></i></span>
+
+                                        <span edit-mode ng-if="isAdmin()" theId="{{download.id}}"
+                                              class="fa-stack pull-right more-margin-right">
+                                                <i class="fa fa-pencil fa-stack-1x"></i>
+                                                <i class="fa fa-ban fa-stack-2x fa-rotate-90"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" ng-if="isAdmin()">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5>Add new download <i class="fa fa-upload pull-right"></i></h5>
+                    </div>
+                    <div class="panel-body">
+                        <form name="newDownloadForm">
+                            <div class="form-group">
+                                <input type="text" ng-model="newDownload.title" class="form-control"
+                                       placeholder="Download name" required>
+                                <input type="text" ng-model="newDownload.type" class="form-control"
+                                       placeholder="Type of download" required>
+                                <input type="text" ng-model="newDownload.url" class="form-control"
+                                       placeholder="URL" required>
+                        <textarea type="text" ng-model="newDownload.description" class="form-control licence-text"
+                                  placeholder="Download Description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <h5 class="pull-left wow tada" ng-if="addedNewDownload">Added!</h5>
+                                <button ladda="downloadLoading" ng-click="createDownload()"
+                                        data-style="slide-down"
+                                        class="btn btn-primary pull-right" ng-disabled="newDownloadForm.$invalid">
+                                    <i class="fa fa-upload"></i> Upload
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

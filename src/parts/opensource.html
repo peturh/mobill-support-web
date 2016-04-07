@@ -1,0 +1,109 @@
+<section class="section opensource" ng-init="init()">
+    <div class="container">
+        <div class="col-sm-12 text-center white">
+
+            <h1 class="white"><div class="wow slideInLeft inline"> &lt; </div> <div class="wow slideInUp inline"> / </div><div class="wow slideInRight inline"> &gt; </div></h1>
+
+            <h3 class="white  wow slideInUp">We embrace the Open Source community and we love well written code created by a dedicated
+                community.</h3>
+        </div>
+    </div>
+    <div class="container more-margin-top  wow slideInUp" data-wow-duration="0.5s">
+        <div ng-class="adminColumnClass()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Open Source <i
+                            class="fa fa-code pull-right"></i></h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li hide-show theId="{{openSource.id}}" class="list-group-item clickable hover"
+                            ng-repeat="openSource in openSourceList">
+                            <div id="{{openSource.id}}viewMode">
+                                <span class="opensource-lib">{{openSource.title}}</span>
+                                <span class="label label-default pull-right">{{openSource.licence}}</span>
+
+                                <div>
+                                    <div id="{{openSource.id}}" class="truncate">
+                                        <div class="description">
+                                            {{openSource.description}}
+                                        </div>
+                                        <div class="licence-text">
+                                            {{openSource.licenceText}}
+                                        </div>
+
+                                        <div class="hidden padding-bottom" id="{{openSource.id}}editAndRemove">
+                                            <span ng-if="isAdmin()" ng-click="removeOpenSource(openSource.id)"
+                                                  class="pull-right"><i class="fa fa-times"></i></span>
+
+                                            <span ng-if="isAdmin()" edit-mode theId="{{openSource.id}}"
+                                                  class="pull-right">
+                                                <i class="fa fa-pencil more-margin-right"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hidden" id="{{openSource.id}}editMode">
+                                <label>Title: </label><input class="form-control" ng-model="openSource.title">
+                                <label>Licence </label><input class="form-control" ng-model="openSource.licence">
+
+
+                                <label>Description: </label><textarea class="form-control licence-text"
+                                                                      ng-model="openSource.description"></textarea>
+
+                                <label>Licence text: </label><textarea class="form-control licence-text"
+                                                                       ng-model="openSource.licenceText"></textarea>
+
+                                <div class="padding-bottom" id="{{openSource.id}}save">
+                                            <span ng-if="isAdmin()" edit-mode theId="{{download.id}}"
+                                                  ng-click="saveOpenSource(openSource)"
+                                                  class="pull-right"><i class="fa fa-save fa-lg"></i></span>
+
+                                        <span edit-mode ng-if="isAdmin()" theId="{{openSource.id}}"
+                                              class="fa-stack pull-right more-margin-right">
+                                                <i class="fa fa-pencil fa-stack-1x"></i>
+                                                <i class="fa fa-ban fa-stack-2x fa-rotate-90"></i>
+                                        </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6" ng-if="isAdmin()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5>Add new open source library <i class="fa fa-plus pull-right"></i></h5>
+                </div>
+                <div class="panel-body">
+                    <form name="newOpenSourceLibraryForm">
+                        <div class="form-group">
+                            <input type="text" ng-model="newOpenSourceLibrary.title" class="form-control"
+                                   placeholder="Library name" required>
+                            <input type="text" ng-model="newOpenSourceLibrary.description" class="form-control"
+                                   placeholder="Used in application..." required>
+                            <input type="text" ng-model="newOpenSourceLibrary.licence" class="form-control"
+                                   placeholder="Licence" required>
+                        <textarea type="text" ng-model="newOpenSourceLibrary.licenceText"
+                                  class="form-control licence-textarea"
+                                  placeholder="Licence text" required></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <h5 class="pull-left wow tada" ng-if="addedNewOpenSource">Added!</h5>
+                            <button ladda="openSourceLoading" data-style="slide-down"
+                                    class="btn btn-primary pull-right"
+                                    ng-disabled="newOpenSourceLibraryForm.$invalid"
+                                    ng-click="createOpenSource()">
+                                <i class="fa fa-plus"></i> Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

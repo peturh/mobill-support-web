@@ -1,0 +1,31 @@
+{
+  "name": "mobill-support-web",
+  "version": "0.0.1",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "Copyright",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "crypto-js": "^3.1.4",
+    "express": "~4.12.3",
+    "formidable": "~1.0.17",
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "0.8.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-html2js": "^0.3.1",
+    "grunt-targethtml": "",
+    "moment": "^2.10.6",
+    "mongoose": ""
+  }
+}

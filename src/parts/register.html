@@ -1,0 +1,65 @@
+<div ng-if="!isAdmin()">
+    <div ng-include="'parts/401.html'"></div>
+</div>
+
+<div ng-init="init()" ng-if="isAdmin()">
+    <section class="section register">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="col-sm-12 text-center white" ng-show="registered">
+                    <h3 class="white wow tada"><i class="fa fa-check fa-4x"></i></h3>
+
+                    <h3 class="white wow tada"> Successfully registered!</h3>
+                </div>
+                <div class="col-sm-12 text-center white" ng-show="!registered">
+                    <h3 class="white wow slideInLeft"><i class="fa fa-pencil fa-4x"></i></h3>
+
+                    <h3 class="white wow slideInUp"> Register a user to give them access so they can take part of our downloads and
+                        create
+                        incident reports on different services.</h3>
+                </div>
+                <div class="col-sm-12 wow slideInUp more-margin-top" ng-if="isAdmin()">
+                    <form name="Register_Form" class="form-signin">
+                        <input type="text" class="form-control margin-bottom" ng-model="registerUser.username"
+                               name="Username"
+                               placeholder="Username"
+                               required="" autofocus=""/>
+                        <input type="password" class="form-control" ng-model="registerUser.password" name="Password"
+                               placeholder="Password"
+                               required=""/>
+                        <input type="password" class="form-control" ng-model="registerUser.repeatPassword"
+                               name="Password"
+                               placeholder="Repeat password"
+                               required=""/>
+
+                        <select  class="form-control" ng-model="registerUser.type"
+                                ng-options="option for option in userRoles"></select>
+
+                        <textarea class="form-control margin-bottom licence-text" ng-model="registerUser.description" required
+                                  placeholder="Describe this user"></textarea>
+
+                        <div class="alert alert-dismissible alert-danger" ng-show="error">
+                            <div><strong><i class="fa fa-exclamation-triangle"></i>
+                                Unable to register.</strong></div>
+                            A user with that name existed.
+                        </div>
+                        <div class="alert alert-dismissible alert-danger" ng-show="notMatching">
+                            <div><strong><i class="fa fa-exclamation-triangle"></i>
+                                Password does not match.</strong></div>
+                            Please make sure you type the same password in both fields.
+                        </div>
+                        <button ladda="registerUserLoading"
+                                data-style="slide-down" class="btn btn-lg btn-warning btn-block" value="Login"
+                                ng-disabled="Register_Form.$invalid"
+                                ng-click="register()">
+                            <i class="fa fa-pencil"></i> Register
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>

@@ -1,0 +1,45 @@
+<div ng-init="init()">
+    <section class="section loggedin">
+        <div class="container">
+            <div class="col-sm-12 text-center white" ng-if="isLoggedIn()">
+                <h3 class="white"><i class="fa fa-check fa-4x wow tada"></i></h3>
+
+                <h3 class="white wow tada"> Successfully logged in!</h3>
+            </div>
+            <div class="col-sm-12 text-center white" ng-if="!isLoggedIn()">
+                <h3 class="white wow slideInDown"><i class="fa fa-sign-in fa-4x"></i></h3>
+
+                <h3 class="white wow slideInUp"> Log in to view more parts of the page, to send incident reports and take part of our
+                    downloads.</h3>
+                <div class="a-lot-more-margin-top wow slideInUp">
+                    <form name="Login_Form" class="form-signin" ng-hide="isLoggedIn()">
+                        <input type="text" class="form-control" ng-model="userLogin.username" name="Username"
+                               placeholder="Username"
+                               required="" autofocus=""/>
+                        <input type="password" class="form-control" ng-model="userLogin.password" name="Password"
+                               placeholder="Password"
+                               required=""/>
+
+                        <div class="alert alert-dismissible alert-danger" ng-show="error">
+                            <div><strong><i class="fa fa-exclamation-triangle"></i>
+                                Unable to log in at the moment.</strong></div>
+                            Try again later.
+                        </div>
+                        <div class="alert alert-dismissible alert-danger" ng-show="wrongUsernameOrPassword">
+                            <div><strong><i class="fa fa-exclamation-triangle"></i>
+                                Wrong username or password</strong></div>
+                            Try again later.
+                        </div>
+                        <button ladda="loginLoading"
+                                data-style="slide-down" class="btn btn-lg btn-primary btn-block" value="Login"
+                                ng-click="login()" ng-disabled="Login_Form.$invalid">
+                            <i class="fa fa-sign-in"></i> Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
