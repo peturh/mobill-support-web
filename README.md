@@ -29,6 +29,6 @@ Then just go into http://localhost:9093
 
 ## Initate an admin
 
-Copy paste this into browser, if {successfull: true} comes up you can log into this awesome homebuild CMS.
+Press the link down below, if {successfull: true} comes up you can log into this awesome homebuild CMS.
 
-[create admin](http://localhost:9093/support/initiate/createAdmin)
+[Create an admin](http://localhost:9093/support/initiate/createAdmin)
