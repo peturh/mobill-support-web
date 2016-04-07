@@ -7,8 +7,11 @@
 * `grunt-cli`
 
 ## Develop
-
+`npm install`
+and
 `grunt --watch`
+
+should be enough.
 
 ## Run the server
 
