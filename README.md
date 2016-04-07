@@ -1,5 +1,9 @@
 # mobill-support-web
 
+
+
+
+
 ## Dependencies
 
 * `node` and `npm`
@@ -12,6 +16,8 @@ and
 `grunt --watch`
 
 should be enough.
+
+Then just go into http://localhost:9093
 
 ## Run the server
 
