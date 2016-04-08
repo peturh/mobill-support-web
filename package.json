@@ -1,5 +1,5 @@
 {
-  "name": "mobill-support-web",
+  "name": "support-web",
   "version": "0.0.1",
   "description": "",
   "main": "Gruntfile.js",
@@ -8,7 +8,6 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "Copyright",
   "dependencies": {
     "body-parser": "^1.12.3",
     "crypto-js": "^3.1.4",

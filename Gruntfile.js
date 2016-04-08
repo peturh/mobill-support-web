@@ -128,7 +128,7 @@ module.exports = function(grunt) {
                     {src: ['dist/**'], dest: 'mobill-support-web-<%= pkg.version %>/'},
                     {src: ['package.json'], dest: 'mobill-support-web-<%= pkg.version %>/'},
                     {src: ['supportserver.js'], dest: 'mobill-support-web-<%= pkg.version %>/'},
-                    {src: ['mobill_node_modules/**'], dest: 'mobill-support-web-<%= pkg.version %>/'},
+                    {src: ['my_modules/**'], dest: 'mobill-support-web-<%= pkg.version %>/'},
                     {src: ['Gruntfile.js'], dest: 'mobill-support-web-<%= pkg.version %>/'}
 
                 ]

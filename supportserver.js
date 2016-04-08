@@ -20,10 +20,10 @@ var mongoose = require('mongoose');
 
  */
 
-var users = require('./mobill_node_modules/users.js');
-var downloadList = require('./mobill_node_modules/downloadList.js');
-var opensourceList = require('./mobill_node_modules/opensourceList.js');
-var sessions = require('./mobill_node_modules/sessions.js');
+var users = require('./my_modules/users.js');
+var downloadList = require('./my_modules/downloadList.js');
+var opensourceList = require('./my_modules/opensourceList.js');
+var sessions = require('./my_modules/sessions.js');
 
 
 app.use(express.static(path.join(__dirname, '/src/')));

@@ -1,8 +1,4 @@
-# mobill-support-web
-
-
-
-
+# Small CMS like thingy with cool auth and stuff
 
 ## Dependencies
 
